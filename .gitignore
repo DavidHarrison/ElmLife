@@ -4,3 +4,9 @@ elm-stuff
 
 # swap files
 *.swp
+
+# generated HTML files
+*.html
+
+# Elm runtime
+elm.js

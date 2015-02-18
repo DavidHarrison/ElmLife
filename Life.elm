@@ -27,6 +27,7 @@ import Random           ( Generator
                         , initialSeed
                         , int
                         )
+import Signal
 import Signal           ( Signal
                         , (<~)
                         , (~)
@@ -264,9 +265,9 @@ boardDims cells (w,h) =
 
 main : Signal Element
 main =
-    let bdims = boardDims 1000 <~ Window.dimensions
+    let bdims = boardDims 30000 <~ Window.dimensions
         cdims = cellDims <~ bdims ~ Window.dimensions
         fun board cellDims = case board of
             Nothing -> plainText "Hold on a minute"
             Just b  -> render cellDims b
-    in fun <~ life bdims 100 ~ cdims
+    in fun <~ life bdims 1000 ~ cdims
